@@ -1,0 +1,70 @@
+---
+// Features component
+const features = [
+  {
+    title: 'Inventory & Product Management',
+    description: 'Full product cataloging, real-time stock tracking across multiple warehouses, and proactive low-stock alerts to keep your business running smoothly.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 001.414 0l2.414-2.414a1 1 0 01.707-.293H20" /></svg>`
+  },
+  {
+    title: 'Sales & CRM',
+    description: 'A user-friendly POS interface, complete sales order management, and a sales pipeline to track opportunities from lead to conversion.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`
+  },
+  {
+    title: 'Purchase & SRM',
+    description: 'Manage your procurement with full purchase order lifecycle tracking, a detailed supplier database, and efficient purchase return management.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`
+  },
+  {
+    title: 'Financial & Accounting Suite',
+    description: 'From a customizable Chart of Accounts and General Ledger to Income Statements and Balance Sheets, take full control of your finances.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`
+  },
+  {
+    title: 'Multi-Currency Support',
+    description: 'Handle transactions in multiple currencies with configurable settings for symbols, decimal places, and currency codes.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1V4m0 2.01M12 14v4m0 4v-4m-4-6v4m0 4v-4" /></svg>`
+  },
+  {
+    title: 'User & Role Management',
+    description: 'Ensure security and control with a powerful role-based access system. Assign pre-defined roles like Admin, Manager, or Staff.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197" /></svg>`
+  }
+];
+---
+
+<section id="features" class="relative bg-white py-16 sm:py-24 lg:py-32">
+  <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
+    <h2 class="text-base font-semibold uppercase tracking-wider text-indigo-600">
+      Everything You Need
+    </h2>
+    <p class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+      A Better Way to Manage Your Business
+    </p>
+    <p class="mx-auto mt-5 max-w-prose text-xl text-slate-500">
+      Invent-MAG isn't just another tool; it's a complete ecosystem designed to give you a bird's-eye view of your entire operation, from inventory to accounting.
+    </p>
+    <div class="mt-12">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map(feature => (
+          <div class="pt-6">
+            <div class="flow-root rounded-lg bg-slate-50 px-6 pb-8">
+              <div class="-mt-6">
+                <div>
+                  <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-3 shadow-lg">
+                    <Fragment set:html={feature.icon} />
+                  </span>
+                </div>
+                <h3 class="mt-8 text-lg font-medium tracking-tight text-slate-900">{feature.title}</h3>
+                <p class="mt-5 text-base text-slate-500">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

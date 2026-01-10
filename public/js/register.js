@@ -91,10 +91,11 @@ async function confirmRegistration() {
       // Reset form
       form.reset();
 
-      // Redirect after 3 seconds
-      setTimeout(() => {
-        // window.location.href = '/login'; // Uncomment when ready
-      }, 3000);
+      // Construct the tenant-specific login URL and store it for the modal button
+      if (result.tenant_domain) {
+        const tenantLoginUrl = `http://${result.tenant_domain}/admin/login`;
+        window.tempTenantLoginUrl = tenantLoginUrl;
+      }
     } else if (response.status === 422) {
       // Validation errors
       if (result.errors) {
