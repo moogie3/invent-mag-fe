@@ -77,15 +77,13 @@ async function confirmRegistration() {
       // Success
       if (window.Modal) {
         window.Modal.showSuccess(
-          "🎉 Registration successful! Your account has been created and you can now login."
+          "Registration successful! Your account has been created and you can now login."
         );
       }
 
-      // Store token in localStorage
-      if (result.access_token) {
-        localStorage.setItem("auth_token", result.access_token);
+      // Store user info in localStorage (optional, but can be useful)
+      if (result.user) {
         localStorage.setItem("user", JSON.stringify(result.user));
-        console.log("API Token:", result.access_token);
       }
 
       // Reset form
