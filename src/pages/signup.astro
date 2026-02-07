@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Modal from '../components/Modal.astro';
+---
+
+<BaseLayout title="Create Account - Invent-MAG">
+  <section class="py-12 lg:py-24">
+    <div class="max-w-2xl mx-auto px-4 xl:px-0">
+      <div class="bg-white/90 backdrop-blur-sm p-6 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50">
+        <div class="text-center">
+          <h2 class="text-3xl font-semibold text-slate-800 sm:text-4xl">
+            Create an account
+          </h2>
+          <p class="mt-4 text-slate-600">
+            Get started with your own workspace in just a few minutes.
+          </p>
+        </div>
+
+        <form id="registerForm" class="mt-8 space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-700">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              placeholder="John Doe"
+            />
+            <span id="name-error" class="error-message text-red-500 text-sm"></span>
+          </div>
+
+          <div>
+            <label for="shopname" class="block text-sm font-medium text-slate-700">
+              Shop Name
+            </label>
+            <input
+              type="text"
+              name="shopname"
+              id="shopname"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              placeholder="My Awesome Shop"
+            />
+            <span id="shopname-error" class="error-message text-red-500 text-sm"></span>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-700">
+              Email address
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              placeholder="you@example.com"
+            />
+            <span id="email-error" class="error-message text-red-500 text-sm"></span>
+          </div>
+
+          <div>
+            <label for="password" class="block text-sm font-medium text-slate-700">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              minlength="8"
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              placeholder="Password"
+            />
+            <span id="password-error" class="error-message text-red-500 text-sm"></span>
+            <p class="mt-1 text-xs text-slate-500">Must be at least 8 characters</p>
+          </div>
+
+          <div>
+            <label for="password_confirmation" class="block text-sm font-medium text-slate-700">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="password_confirmation"
+              id="password_confirmation"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            >
+              Sign Up
+            </button>
+          </div>
+
+          <div class="text-center text-sm text-slate-600">
+            Already have an account? 
+            <a href="/login" class="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+              Sign in
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <Modal id="confirmModal" title="Confirm Your Registration" type="confirm">
+    <div class="space-y-4">
+      <p class="text-slate-600">Please review your information before submitting:</p>
+      
+      <div class="bg-slate-50 rounded-lg p-4 space-y-3">
+        <div class="flex justify-between">
+          <span class="text-sm font-medium text-slate-700">Full Name:</span>
+          <span class="text-sm text-slate-900" data-confirm="name">-</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-sm font-medium text-slate-700">Shop Name:</span>
+          <span class="text-sm text-slate-900" data-confirm="shopname">-</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-sm font-medium text-slate-700">Email:</span>
+          <span class="text-sm text-slate-900" data-confirm="email">-</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500 italic">
+        By confirming, you agree to create an account with the information above.
+      </p>
+    </div>
+
+    <div slot="footer">
+      <button
+        type="button"
+        class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-50 transition-colors"
+        data-close-modal="confirmModal"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        onclick="confirmRegistration()"
+        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+      >
+        Confirm & Register
+      </button>
+    </div>
+  </Modal>
+
+  <!-- Success Modal -->
+  <Modal id="successModal" title="Registration Successful!" type="success">
+    <div class="text-center py-4">
+      <p class="modal-message text-slate-600 text-lg">
+        Your account has been created successfully!
+      </p>
+      <p class="mt-4 text-sm text-slate-500">
+        You will be redirected to the login page shortly...
+      </p>
+    </div>
+
+    <div slot="footer">
+      <button
+        type="button"
+        class="px-6 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 transition-colors shadow-sm"
+        onclick="if(window.tempTenantLoginUrl) { window.location.href = window.tempTenantLoginUrl; } else { alert('Could not determine the login URL.'); }"
+      >
+        Go to Login
+      </button>
+    </div>
+  </Modal>
+
+  <!-- Error Modal -->
+  <Modal id="errorModal" title="Registration Error" type="error">
+    <div class="py-2">
+      <p class="modal-message text-slate-600 whitespace-pre-line">
+        An error occurred during registration.
+      </p>
+    </div>
+
+    <div slot="footer">
+      <button
+        type="button"
+        class="px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors shadow-sm"
+        data-close-modal="errorModal"
+      >
+        Close
+      </button>
+    </div>
+  </Modal>
+
+  <!-- Include modal and register scripts -->
+  <script is:inline src="/js/modal.js"></script>
+  <script is:inline src="/js/register.js"></script>
+</BaseLayout>
