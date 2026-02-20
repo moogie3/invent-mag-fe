@@ -1,24 +1,30 @@
 ---
 // Hero Component
 ---
-<section class="bg-gradient-to-b from-blue-50 to-white">
-  <div class="relative isolate px-6 pt-14 lg:px-8">
+<section class="bg-dark bg-hero-glow relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none z-0">
+    <div class="absolute top-[20%] left-[10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[120px]"></div>
+    <div class="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] rounded-full bg-blue-600/10 blur-[100px]"></div>
+  </div>
+
+  <div class="relative z-10 px-6 pt-14 lg:px-8">
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-          The All-In-One ERP to Streamline Your Business
+        <h1 class="heading-1 text-4xl sm:text-6xl mb-6 text-center">
+          The All-In-One ERP to <span class="text-primary">Streamline Your Business</span>
         </h1>
-        <p class="mt-6 text-lg leading-8 text-slate-600">
+        <p class="text-body mt-6 text-lg leading-8">
           From inventory and sales to a full accounting suite, Invent-MAG provides the tools you need to make smarter, data-driven decisions and accelerate your growth.
         </p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/signup"
-            class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all transform hover:-translate-y-0.5"
+            class="btn rounded-full bg-light px-8 py-3.5 text-base font-semibold text-dark shadow-lg hover:bg-white transition-all transform hover:-translate-y-1"
           >
             Get Started Free
           </a>
-          <a href="/#features" class="text-sm font-semibold leading-6 text-slate-900">
+          <a href="/#features" class="btn btn-outline rounded-full px-8 py-3.5 text-base font-semibold">
             Learn more  
           </a>
         </div>

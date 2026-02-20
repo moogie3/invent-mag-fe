@@ -57,26 +57,21 @@ import Navigation from '../components/Navigation.astro';
 				link: [
 					{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
 					{ rel: "preconnect", href: "https://fonts.googleapis.com" },
-					{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
-					{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
+					{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
+					{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" },
 				],
 				meta: [
 					{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
 					{ name: "generator", content: Astro.generator },
-					{ name: "theme-color", content: "#0f172a" },
-					{ name: "color-scheme", content: "light dark" },
+					{ name: "theme-color", content: "#0d121c" },
+					{ name: "color-scheme", content: "dark" },
 				],
 			}}
 		/>
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	</head>
-	<body class="text-gray-900">
+	<body class="bg-dark bg-hero-glow text-gray-muted font-sans antialiased min-h-screen">
 		<div class="relative min-h-screen">
-			<img
-			  class="absolute left-0 top-0 -z-20 h-full w-full object-cover"
-			  src="https://tailkits.com/ui/iframe/assets/img/bg-12.png"
-			  alt="Background image"
-			/>
 			<Banner />
 			<Navigation />
 			<slot />

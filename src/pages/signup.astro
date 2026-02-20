@@ -6,19 +6,19 @@ import Modal from '../components/Modal.astro';
 <BaseLayout title="Create Account - Invent-MAG">
   <section class="py-12 lg:py-24">
     <div class="max-w-2xl mx-auto px-4 xl:px-0">
-      <div class="bg-white/90 backdrop-blur-sm p-6 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50">
+      <div class="card p-6 md:p-10 backdrop-blur-sm">
         <div class="text-center">
-          <h2 class="text-3xl font-semibold text-slate-800 sm:text-4xl">
+          <h2 class="heading-1">
             Create an account
           </h2>
-          <p class="mt-4 text-slate-600">
+          <p class="mt-4 text-body">
             Get started with your own workspace in just a few minutes.
           </p>
         </div>
 
         <form id="registerForm" class="mt-8 space-y-6">
           <div>
-            <label for="name" class="block text-sm font-medium text-slate-700">
+            <label for="name" class="label">
               Full Name
             </label>
             <input
@@ -26,14 +26,14 @@ import Modal from '../components/Modal.astro';
               name="name"
               id="name"
               required
-              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              class="input-field mt-1"
               placeholder="John Doe"
             />
-            <span id="name-error" class="error-message text-red-500 text-sm"></span>
+            <span id="name-error" class="error-message text-red-400 text-sm"></span>
           </div>
 
           <div>
-            <label for="shopname" class="block text-sm font-medium text-slate-700">
+            <label for="shopname" class="label">
               Shop Name
             </label>
             <input
@@ -41,14 +41,14 @@ import Modal from '../components/Modal.astro';
               name="shopname"
               id="shopname"
               required
-              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              class="input-field mt-1"
               placeholder="My Awesome Shop"
             />
-            <span id="shopname-error" class="error-message text-red-500 text-sm"></span>
+            <span id="shopname-error" class="error-message text-red-400 text-sm"></span>
           </div>
 
           <div>
-            <label for="email" class="block text-sm font-medium text-slate-700">
+            <label for="email" class="label">
               Email address
             </label>
             <input
@@ -56,14 +56,14 @@ import Modal from '../components/Modal.astro';
               name="email"
               id="email"
               required
-              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              class="input-field mt-1"
               placeholder="you@example.com"
             />
-            <span id="email-error" class="error-message text-red-500 text-sm"></span>
+            <span id="email-error" class="error-message text-red-400 text-sm"></span>
           </div>
 
           <div>
-            <label for="password" class="block text-sm font-medium text-slate-700">
+            <label for="password" class="label">
               Password
             </label>
             <input
@@ -72,15 +72,15 @@ import Modal from '../components/Modal.astro';
               id="password"
               required
               minlength="8"
-              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              class="input-field mt-1"
               placeholder="Password"
             />
-            <span id="password-error" class="error-message text-red-500 text-sm"></span>
-            <p class="mt-1 text-xs text-slate-500">Must be at least 8 characters</p>
+            <span id="password-error" class="error-message text-red-400 text-sm"></span>
+            <p class="mt-1 text-xs text-gray-muted">Must be at least 8 characters</p>
           </div>
 
           <div>
-            <label for="password_confirmation" class="block text-sm font-medium text-slate-700">
+            <label for="password_confirmation" class="label">
               Confirm Password
             </label>
             <input
@@ -88,7 +88,7 @@ import Modal from '../components/Modal.astro';
               name="password_confirmation"
               id="password_confirmation"
               required
-              class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-shadow"
+              class="input-field mt-1"
               placeholder="Confirm Password"
             />
           </div>
@@ -96,15 +96,15 @@ import Modal from '../components/Modal.astro';
           <div>
             <button
               type="submit"
-              class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              class="btn btn-primary w-full py-2.5 px-4 text-sm"
             >
               Sign Up
             </button>
           </div>
 
-          <div class="text-center text-sm text-slate-600">
+          <div class="text-center text-sm text-gray-muted">
             Already have an account? 
-            <a href="/login" class="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+            <a href="/login" class="btn-ghost">
               Sign in
             </a>
           </div>
@@ -116,24 +116,24 @@ import Modal from '../components/Modal.astro';
   <!-- Confirmation Modal -->
   <Modal id="confirmModal" title="Confirm Your Registration" type="confirm">
     <div class="space-y-4">
-      <p class="text-slate-600">Please review your information before submitting:</p>
+      <p class="text-gray-muted">Please review your information before submitting:</p>
       
-      <div class="bg-slate-50 rounded-lg p-4 space-y-3">
+      <div class="bg-dark border border-white/5 rounded-lg p-4 space-y-3">
         <div class="flex justify-between">
-          <span class="text-sm font-medium text-slate-700">Full Name:</span>
-          <span class="text-sm text-slate-900" data-confirm="name">-</span>
+          <span class="text-sm font-medium text-gray-400">Full Name:</span>
+          <span class="text-sm text-light" data-confirm="name">-</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-sm font-medium text-slate-700">Shop Name:</span>
-          <span class="text-sm text-slate-900" data-confirm="shopname">-</span>
+          <span class="text-sm font-medium text-gray-400">Shop Name:</span>
+          <span class="text-sm text-light" data-confirm="shopname">-</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-sm font-medium text-slate-700">Email:</span>
-          <span class="text-sm text-slate-900" data-confirm="email">-</span>
+          <span class="text-sm font-medium text-gray-400">Email:</span>
+          <span class="text-sm text-light" data-confirm="email">-</span>
         </div>
       </div>
 
-      <p class="text-xs text-slate-500 italic">
+      <p class="text-xs text-gray-500 italic">
         By confirming, you agree to create an account with the information above.
       </p>
     </div>
@@ -141,7 +141,7 @@ import Modal from '../components/Modal.astro';
     <div slot="footer">
       <button
         type="button"
-        class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-50 transition-colors"
+        class="px-4 py-2 text-sm font-medium text-light bg-transparent border border-white/10 rounded-md hover:bg-white/5 transition-colors"
         data-close-modal="confirmModal"
       >
         Cancel
@@ -149,7 +149,7 @@ import Modal from '../components/Modal.astro';
       <button
         type="button"
         onclick="confirmRegistration()"
-        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/90 transition-colors shadow-sm text-dark"
       >
         Confirm & Register
       </button>
@@ -159,10 +159,10 @@ import Modal from '../components/Modal.astro';
   <!-- Success Modal -->
   <Modal id="successModal" title="Registration Successful!" type="success">
     <div class="text-center py-4">
-      <p class="modal-message text-slate-600 text-lg">
-        Your account has been created successfully!
+      <p class="modal-message text-light text-lg">
+        Your account has created successfully!
       </p>
-      <p class="mt-4 text-sm text-slate-500">
+      <p class="mt-4 text-sm text-gray-muted">
         You will be redirected to the login page shortly...
       </p>
     </div>
@@ -181,7 +181,7 @@ import Modal from '../components/Modal.astro';
   <!-- Error Modal -->
   <Modal id="errorModal" title="Registration Error" type="error">
     <div class="py-2">
-      <p class="modal-message text-slate-600 whitespace-pre-line">
+      <p class="modal-message text-light whitespace-pre-line">
         An error occurred during registration.
       </p>
     </div>
