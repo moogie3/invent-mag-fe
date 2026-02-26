@@ -3,14 +3,25 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-dark-surface border-t border-white/5">
+<footer class="bg-dark">
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="md:flex md:items-center md:justify-between">
-      <div class="mt-8 md:mt-0 md:order-1">
-        <p class="text-center text-base text-gray-muted">
-          &copy; {year} Invent-MAG. All rights reserved.
-        </p>
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <div class="flex items-center gap-4">
+          <a href="mailto:contact@invent-mag.com" class="text-gray-muted hover:text-white transition-colors" title="Email">
+            <img src="/icons/email.svg" alt="Email" class="h-5 w-5 brightness-0 invert" />
+          </a>
+          <a href="https://id.linkedin.com/in/jefry-dwijaya-01b48521a" target="_blank" rel="noopener noreferrer" class="text-gray-muted hover:text-white transition-colors" title="LinkedIn">
+            <img src="/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5 brightness-0 invert" />
+          </a>
+          <a href="https://github.com/moogie3/invent-mag/tree/saas" target="_blank" rel="noopener noreferrer" class="text-gray-muted hover:text-white transition-colors" title="GitHub">
+            <img src="/icons/github.svg" alt="GitHub" class="h-5 w-5 brightness-0 invert" />
+          </a>
+        </div>
       </div>
+      <p class="text-base text-gray-muted">
+        &copy; {year} Invent-MAG. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>

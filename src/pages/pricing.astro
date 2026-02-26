@@ -1,10 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PricingComponent from '../components/Pricing.astro';
-import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Pricing - Invent-MAG">
-  <PricingComponent />
-  <Cta />
+<BaseLayout 
+  title="Pricing - Invent-MAG" 
+  description="Simple, transparent pricing for businesses of all sizes. Start with a 30-day free trial."
+>
+  <div class="relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-40 right-20 w-96 h-96 purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10">
+      <PricingComponent />
+    </div>
+  </div>
+  <Footer />
 </BaseLayout>

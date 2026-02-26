@@ -11,8 +11,8 @@ export interface Props {
 }
 
 const { 
-  title = "Invent-MAG",
-  description = "A modern, beautiful Astro starter theme with Tailwind CSS. Perfect for building fast, responsive websites.",
+  title = "Invent-MAG - Enterprise Inventory & Accounting",
+  description = "A comprehensive enterprise ERP system for inventory management, sales, purchases, CRM, and double-entry accounting. Built with Laravel 11.",
   image = "/og-image.jpg",
   canonical = Astro.url.href,
   noindex = false,
@@ -40,19 +40,19 @@ import Navigation from '../components/Navigation.astro';
 					image: image,
 					url: canonical,
 				},
-				optional: {
-					description: description,
-					siteName: "TailKits Astro",
-				},
-			}}
-			twitter={{
-				card: "summary_large_image",
-				site: "@tailkits",
-				creator: "@tailkits",
-				title: title,
+			optional: {
 				description: description,
-				image: image,
+				siteName: "Invent-MAG",
+			},
 			}}
+		twitter={{
+			card: "summary_large_image",
+			site: "@inventmag",
+			creator: "@inventmag",
+			title: title,
+			description: description,
+			image: image,
+		}}
 			extend={{
 				link: [
 					{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -72,7 +72,6 @@ import Navigation from '../components/Navigation.astro';
 	</head>
 	<body class="bg-dark bg-hero-glow text-gray-muted font-sans antialiased min-h-screen">
 		<div class="relative min-h-screen">
-			<Banner />
 			<Navigation />
 			<slot />
 		</div>

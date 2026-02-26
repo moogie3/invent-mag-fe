@@ -57,7 +57,7 @@ body {
 }
 
 .label {
-  @apply block text-sm font-medium text-light mb-1.5;
+  @apply flex items-center gap-2 text-sm font-medium text-light mb-1.5;
 }
 
 .card {

@@ -1,4 +1,4 @@
-<section class="bg-dark-surface py-16 lg:py-24">
+<section class="bg-dark pt-16 lg:pt-24 pb-16 lg:pb-24">
     <div class="max-w-7xl mx-auto px-4 xl:px-0 relative" 
          x-data="{
            currentTestimonial: 0,
@@ -40,9 +40,9 @@
                  x-text="currentQuote.role"></div>
           </div>
           
-          <img class="mt-6 h-8 xl:mt-9 brightness-0 invert" src="https://tailkits.com/ui/iframe/assets/img/logo-big.svg" alt="Logo" />
+          <img class="mt-6 ml-auto h-8 xl:mt-9 brightness-0 invert" src="https://tailkits.com/ui/iframe/assets/img/logo-big.svg" alt="Logo" />
           
-          <div class="mt-6 flex items-center justify-center gap-x-3 md:mt-9 md:gap-x-6">
+          <div class="mt-6 ml-auto flex items-center justify-end gap-x-3 md:mt-9 md:gap-x-6">
             <button
               type="button"
               aria-label="Previous testimonial"
@@ -63,7 +63,7 @@
           </div>
           
           <!-- Progress Dots -->
-          <div class="mt-4 flex justify-center gap-x-2">
+          <div class="mt-4 ml-auto flex justify-end gap-x-2">
             <button @click="currentTestimonial = 0" 
                     class="w-2 h-2 rounded-full transition-all duration-200"
                     :class="currentTestimonial === 0 ? 'bg-white' : 'bg-white/30 hover:bg-white/50'"
