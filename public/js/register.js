@@ -120,7 +120,7 @@ async function confirmRegistration() {
           ) {
             if (window.Modal) {
               window.Modal.showError(
-                "❌ This email address is already registered. Please use a different email or try logging in."
+                "This email address is already registered. Please use a different email or try logging in."
               );
             }
             submitButton.disabled = false;
@@ -137,33 +137,37 @@ async function confirmRegistration() {
 
         // Show error modal with all messages
         if (window.Modal && errorMessages.length > 0) {
-          window.Modal.showError(
-            "⚠️ Please fix the following errors:\n\n" + errorMessages.join("\n")
-          );
+          window.Modal.showError(errorMessages.join("\n"));
         }
       } else {
         if (window.Modal) {
-          window.Modal.showError("⚠️ Please check your input and try again.");
+          window.Modal.showError("Please check your input and try again.");
         }
       }
-    } else if (response.status === 500) {
+    } else if (response.status === 429) {
       if (window.Modal) {
         window.Modal.showError(
-          "❌ Server error occurred. Please try again later or contact support."
+          "Too many attempts. Please wait a moment and try again."
+        );
+      }
+    } else if (response.status === 500 || (result.message && result.message.toLowerCase().includes('too many attempts'))) {
+      if (window.Modal) {
+        window.Modal.showError(
+          "Server error occurred. Please try again later or contact support."
         );
       }
     } else {
       const errorMessage =
         result.message || "An unexpected error occurred. Please try again.";
       if (window.Modal) {
-        window.Modal.showError(`❌ ${errorMessage}`);
+        window.Modal.showError(errorMessage);
       }
     }
   } catch (error) {
     console.error("Registration error:", error);
     if (window.Modal) {
       window.Modal.showError(
-        "❌ Could not connect to the server. Please check your connection and try again."
+        "Could not connect to the server. Please check your connection and try again."
       );
     }
   } finally {

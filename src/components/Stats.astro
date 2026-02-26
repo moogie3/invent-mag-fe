@@ -17,9 +17,11 @@
       >
         <div class="flex flex-col items-center">
           <div
-            class="text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            class="counter text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            data-target="35"
+            data-suffix="+"
           >
-            35+
+            <span class="counter-value">0</span><span class="counter-suffix">+</span>
           </div>
           <p class="mt-2 text-sm font-medium text-gray-muted">
             Pre-built Accounts
@@ -27,9 +29,10 @@
         </div>
         <div class="flex flex-col items-center">
           <div
-            class="text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            class="counter text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            data-target="79"
           >
-            79
+            <span class="counter-value">0</span>
           </div>
           <p class="mt-2 text-sm font-medium text-gray-muted">
             Granular Permissions
@@ -37,9 +40,10 @@
         </div>
         <div class="flex flex-col items-center">
           <div
-            class="text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            class="counter text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            data-target="3"
           >
-            3
+            <span class="counter-value">0</span>
           </div>
           <p class="mt-2 text-sm font-medium text-gray-muted">
             User Roles
@@ -47,9 +51,11 @@
         </div>
         <div class="flex flex-col items-center">
           <div
-            class="text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            class="counter text-gradient text-5xl font-bold font-heading lg:text-6xl xl:text-7xl"
+            data-target="100"
+            data-suffix="%"
           >
-            100%
+            <span class="counter-value">0</span><span class="counter-suffix">%</span>
           </div>
           <p class="mt-2 text-sm font-medium text-gray-muted">
             Double-Entry
@@ -76,4 +82,6 @@
       </div>
     </div>
   </section>
+
+  <script is:inline src="/js/stats-animation.js"></script>
   

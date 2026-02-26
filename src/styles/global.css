@@ -60,6 +60,10 @@ body {
   @apply flex items-center gap-2 text-sm font-medium text-light mb-1.5;
 }
 
+.label img.text-primary {
+  filter: invert(72%) sepia(98%) saturate(264%) hue-rotate(225deg) brightness(89%) contrast(92%);
+}
+
 .card {
   @apply bg-dark-surface border border-white/5 rounded-2xl shadow-xl;
 }
@@ -177,7 +181,8 @@ body {
   flex-shrink: 0;
 }
 
-.modal-icon svg {
+.modal-icon svg,
+.modal-icon img {
   width: 28px;
   height: 28px;
 }
@@ -190,6 +195,10 @@ body {
 .modal-icon-error {
   background-color: rgba(239, 68, 68, 0.2);
   color: #ef4444;
+}
+
+.modal-icon-error img {
+  filter: invert(22%) sepia(99%) saturate(1351%) hue-rotate(345deg) brightness(95%) contrast(101%);
 }
 
 .modal-icon-info {
