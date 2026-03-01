@@ -1,5 +1,7 @@
 ---
 // Navigation component
+const demoStarterUrl = import.meta.env.PUBLIC_DEMO_STARTER_URL || 'http://demo-starter.127.0.0.1.nip.io:8000/admin/login';
+const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'http://demo-pro.127.0.0.1.nip.io:8000/admin/login';
 ---
 
 <header class="sticky top-0 z-50 py-3 backdrop-blur-md border-b border-light/10">
@@ -31,14 +33,39 @@
 			  Pricing
 			</a>
 		  </li>
-		  <li>
-			<a
-			  class="text-base font-medium text-gray-muted transition hover:text-light"
-			  href="https://invent-mag.com"
-			  target="_blank"
+		  <li class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+			<button
+			  class="text-base font-medium text-gray-muted transition hover:text-light flex items-center gap-1"
+			  @click="open = !open"
 			>
 			  Demo
-			</a>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+			</button>
+            <div
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-75"
+              x-transition:leave-start="opacity-100 translate-y-0"
+              x-transition:leave-end="opacity-0 translate-y-2"
+              class="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 z-50"
+              style="display: none;"
+            >
+              <div class="bg-dark-surface border border-light/10 rounded-2xl shadow-xl overflow-hidden py-2 flex flex-col backdrop-blur-md">
+                <a href={demoStarterUrl} target="_blank" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
+                  Starter Demo
+                </a>
+                <a href={demoProUrl} target="_blank" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors flex items-center justify-between">
+                  Professional Demo
+                  <span class="w-2 h-2 rounded-full bg-primary/80"></span>
+                </a>
+                <div class="border-t border-light/10 my-1"></div>
+                <a href="mailto:sales@invent-mag.com" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
+                  Enterprise (Contact Us)
+                </a>
+              </div>
+            </div>
 		  </li>
 		</ul>
 	  </nav>
@@ -84,8 +111,20 @@
 		<nav class="space-y-4">
 		  <a href="/#features" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Features</a>
 		  <a href="/pricing" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Pricing</a>
-		  <a href="https://invent-mag.com" target="_blank" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Demo</a>
-		  <div class="pt-4 border-t border-light/10 space-y-3">
+		  
+          <div x-data="{ demoOpen: false }" class="border-y border-light/5 py-2 my-2">
+            <button @click="demoOpen = !demoOpen" class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">
+              <span>Live Demos</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200" :class="demoOpen ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div x-show="demoOpen" class="pl-6 pr-3 flex flex-col space-y-2 mt-2" style="display: none;">
+              <a href={demoStarterUrl} target="_blank" class="block py-2 text-sm font-medium text-gray-muted hover:text-light transition-colors">Starter Demo</a>
+              <a href={demoProUrl} target="_blank" class="block py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-2">Professional Demo <span class="w-1.5 h-1.5 rounded-full bg-primary/80"></span></a>
+              <a href="mailto:sales@invent-mag.com" class="block py-2 text-sm font-medium text-gray-muted hover:text-light transition-colors">Enterprise (Contact Us)</a>
+            </div>
+          </div>
+
+		  <div class="pt-4 space-y-3">
 		    <a href="/login" class="block w-full text-center px-4 py-3 text-base font-semibold text-light hover:text-primary transition-colors">Login</a>
 		    <a href="/signup" class="block w-full text-center px-4 py-3 text-base font-semibold bg-light text-dark rounded-full hover:bg-gray-100 transition-colors">Sign Up</a>
 		  </div>		

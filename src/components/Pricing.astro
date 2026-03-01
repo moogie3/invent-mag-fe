@@ -1,3 +1,7 @@
+---
+const demoStarterUrl = import.meta.env.PUBLIC_DEMO_STARTER_URL || 'http://demo-starter.127.0.0.1.nip.io:8000/admin/login';
+const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'http://demo-pro.127.0.0.1.nip.io:8000/admin/login';
+---
 <section id="pricing" class="bg-dark pt-16 lg:pt-20 pb-16 lg:pb-20 scroll-mt-20 border-t border-white/5">
   <div class="max-w-7xl mx-auto px-4 xl:px-0">
     <div class="flex flex-col">
@@ -24,15 +28,15 @@
       
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <div class="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full">
-          <img src="/icons/check.svg" alt="Check" class="w-4 h-4 flex-shrink-0" />
+          <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
           <span class="text-sm font-medium text-green-400">No credit card required</span>
         </div>
         <div class="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full">
-          <img src="/icons/check.svg" alt="Check" class="w-4 h-4 flex-shrink-0" />
-          <span class="text-sm font-medium text-green-400">30-day free trial</span>
+          <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          <span class="text-sm font-medium text-green-400">7-day free trial</span>
         </div>
         <div class="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full">
-          <img src="/icons/check.svg" alt="Check" class="w-4 h-4 flex-shrink-0" />
+          <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
           <span class="text-sm font-medium text-green-400">Cancel anytime</span>
         </div>
       </div>
@@ -89,15 +93,21 @@
               </li>
             </ul>
           </div>
-          <div class="mt-6 flex grow flex-col justify-end">
+          <div class="mt-6 flex grow flex-col justify-end gap-3">
             <a
-              href="/signup?plan=starter"
-              title="Get Started"
+              href="/signup"
+              title="Start Free Trial"
               class="btn btn-outline px-5 py-3 rounded-xl flex w-full"
             >
-              Get Started
+              Start 7-Day Free Trial
             </a>
-            <p class="mt-3 text-xs font-medium text-gray-muted">
+            <a
+              href={demoStarterUrl} target="_blank"
+              class="btn btn-outline px-5 py-3 rounded-xl flex w-full border-white/10 hover:border-white/30 text-base font-semibold"
+            >
+              <i class="ti ti-external-link mr-2"></i> Try Live Demo
+            </a>
+            <p class="mt-2 text-xs font-medium text-gray-muted text-center">
               No credit card required
             </p>
           </div>
@@ -122,7 +132,7 @@
             <div class="mt-4 flex items-center gap-x-3 p-1">
               <img src="/icons/check-circle-green.svg" alt="Free trial" class="h-5 shrink-0" />
               <p class="mt-1 text-sm font-medium text-green-400">
-                30 days free trial included
+                7 days free trial included
               </p>
             </div>
             <div class="mt-6 flex items-end gap-x-3">
@@ -164,16 +174,22 @@
               </li>
             </ul>
           </div>
-          <div class="mt-6 flex grow flex-col justify-end">
+          <div class="mt-6 flex grow flex-col justify-end gap-3">
             <a
-              href="/signup?plan=professional"
+              href="/signup"
               title="Start Free Trial"
               class="btn btn-primary px-5 py-3 rounded-xl flex w-full"
             >
-              Start Free Trial
+              Start 7-Day Free Trial
             </a>
-            <p class="mt-3 text-xs font-medium text-gray-muted">
-              No credit card required for trial
+            <a
+              href={demoProUrl} target="_blank"
+              class="btn btn-outline px-5 py-3 rounded-xl flex w-full border-white/10 hover:border-white/30 text-base font-semibold"
+            >
+              <i class="ti ti-external-link mr-2"></i> Try Live Demo
+            </a>
+            <p class="mt-2 text-xs font-medium text-gray-muted text-center">
+              No credit card required
             </p>
           </div>
         </div>
@@ -188,9 +204,9 @@
               Advanced intelligence, API access & full compliance.
             </p>
             <div class="mt-4 flex items-center gap-x-3 p-1">
-              <img src="/icons/check-circle-green.svg" alt="Free trial" class="h-5 shrink-0" />
+              <img src="/icons/check-circle-green.svg" alt="Enterprise" class="h-5 shrink-0" />
               <p class="mt-1 text-sm font-medium text-green-400">
-                30 days free trial included
+                Enterprise support & SLA
               </p>
             </div>
             <div class="mt-6 flex items-end gap-x-3">
@@ -230,14 +246,14 @@
           </div>
           <div class="mt-6 flex grow flex-col justify-end">
             <a
-              href="/signup?plan=enterprise"
-              title="Start Free Trial"
-              class="btn btn-primary px-5 py-3 rounded-xl flex w-full"
+              href="mailto:sales@invent-mag.com"
+              title="Contact Sales"
+              class="btn btn-outline px-5 py-3 rounded-xl flex w-full border-white/20 hover:border-white/40"
             >
-              Start Free Trial
+              Contact Sales
             </a>
-            <p class="mt-3 text-xs font-medium text-gray-muted">
-              No credit card required for trial
+            <p class="mt-3 text-xs font-medium text-gray-muted text-center">
+              Custom onboarding available
             </p>
           </div>
         </div>

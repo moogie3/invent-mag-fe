@@ -16,7 +16,7 @@ import Footer from '../components/Footer.astro';
           <img src="/icons/user-add.svg" alt="Sign Up" class="w-8 h-8 text-dark" />
         </div>
         <h2 class="heading-1 text-3xl lg:text-4xl">
-          Start Your Free Trial
+          Start Your 7-Day Free Trial
         </h2>
         <p class="mt-4 text-body text-base max-w-md mx-auto">
           Get started with your own enterprise inventory management workspace in seconds
@@ -25,7 +25,10 @@ import Footer from '../components/Footer.astro';
 
       <div class="card p-6 md:p-10 backdrop-blur-sm bg-dark-surface/80 border border-white/10">
         <form id="registerForm" class="space-y-5">
-          <div class="grid md:grid-cols-2 gap-5">
+          <!-- Hidden plan field defaulted to professional -->
+          <input type="hidden" name="plan" id="plan" value="professional" />
+          
+          <div class="grid md:grid-cols-2 gap-5 mt-2">
             <div>
               <label for="name" class="label">
                 <img src="/icons/user.svg" alt="User" class="w-4 h-4 text-primary" />
@@ -136,7 +139,7 @@ import Footer from '../components/Footer.astro';
       </div>
       
       <p class="mt-6 text-center text-sm text-gray-500">
-        No credit card required. Start with a 30-day free trial.
+        No credit card required. Full access to professional features for 7 days.
       </p>
     </div>
   </section>
@@ -158,6 +161,10 @@ import Footer from '../components/Footer.astro';
         <div class="flex justify-between">
           <span class="text-sm font-medium text-gray-400">Email:</span>
           <span class="text-sm text-light" data-confirm="email">-</span>
+        </div>
+        <div class="flex justify-between" id="confirm-plan-row" style="display: none;">
+          <span class="text-sm font-medium text-gray-400">Plan:</span>
+          <span class="text-sm text-light" data-confirm="plan">-</span>
         </div>
       </div>
 

@@ -59,7 +59,8 @@ async function confirmRegistration() {
     </svg>
   `;
 
-  const backendUrl = "http://localhost:8000/api/register";
+  const baseUrl = window.BACKEND_URL || 'http://localhost:8000';
+  const backendUrl = `${baseUrl}/api/register`;
 
   try {
     const response = await fetch(backendUrl, {

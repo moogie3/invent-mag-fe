@@ -72,6 +72,13 @@ const Modal = {
       if (emailEl) emailEl.textContent = data.email || "-";
       if (shopnameEl) shopnameEl.textContent = data.shopname || "-";
 
+      // Populate plan confirmation
+      const planEl = modal.querySelector('[data-confirm="plan"]');
+      if (planEl) {
+        const planNames = { starter: 'Starter', professional: 'Professional', enterprise: 'Enterprise' };
+        planEl.textContent = data.plan ? (planNames[data.plan] || data.plan) : 'Default (Starter)';
+      }
+
       this.show("confirmModal");
     }
   },

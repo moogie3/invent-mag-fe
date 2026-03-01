@@ -1,5 +1,6 @@
 ---
 // Call to Action Component
+const demoUrl = import.meta.env.PUBLIC_DEMO_URL || 'http://demo-pro.127.0.0.1.nip.io:8000/admin/login';
 ---
 <section class="bg-dark bg-hero-glow py-20 lg:py-24 relative overflow-hidden">
   <!-- Decorative background elements -->
@@ -20,13 +21,13 @@
         href="/signup"
         class="btn btn-primary rounded-full px-8 py-3.5 text-base"
       >
-        Get started today
+        Start 7-Day Free Trial
       </a>
       <a 
-        href="/login" 
+        href={demoUrl} target="_blank"
         class="btn btn-outline rounded-full px-8 py-3.5 text-base"
       >
-        Log in to existing account
+        Try Live Demo
       </a>
     </div>
   </div>

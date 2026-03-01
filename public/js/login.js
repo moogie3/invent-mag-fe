@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.innerHTML = 'Finding...';
 
     try {
-      const response = await fetch('http://localhost:8000/api/lookup-tenant', {
+      const backendUrl = window.BACKEND_URL || 'http://localhost:8000';
+      const response = await fetch(`${backendUrl}/api/lookup-tenant`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
