@@ -95,12 +95,9 @@ async function confirmRegistration() {
       // Reset form
       form.reset();
 
-      // Construct the tenant-specific login URL using main domain with workspace query param
+      // Construct the tenant-specific login URL using the full tenant_domain
       if (result.tenant_domain) {
-        // Use workspace_slug from API if available, otherwise extract from tenant_domain
-        const workspaceSlug = result.workspace_slug || result.tenant_domain.split('.')[0];
-        const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
-        const tenantLoginUrl = `${baseUrl}/?workspace=${workspaceSlug}`;
+        const tenantLoginUrl = `https://${result.tenant_domain}/admin/login`;
         window.tempTenantLoginUrl = tenantLoginUrl;
       }
     } else if (response.status === 422) {
