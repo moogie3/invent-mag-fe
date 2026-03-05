@@ -90,9 +90,12 @@ async function confirmRegistration() {
       // Reset form
       form.reset();
 
-      // Construct the tenant-specific login URL and store it for the modal button
+      // Construct the tenant-specific login URL using main domain with workspace query param
       if (result.tenant_domain) {
-        const tenantLoginUrl = `https://${result.tenant_domain}/admin/login`;
+        // Extract workspace slug from tenant_domain (e.g., demo-starter.invent-mag.up.railway.app -> demo-starter)
+        const workspaceSlug = result.tenant_domain.split('.')[0];
+        const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
+        const tenantLoginUrl = `${baseUrl}/?workspace=${workspaceSlug}`;
         window.tempTenantLoginUrl = tenantLoginUrl;
       }
     } else if (response.status === 422) {

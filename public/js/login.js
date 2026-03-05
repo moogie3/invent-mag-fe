@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Redirect to the tenant-specific login page
-        window.location.href = `https://${result.tenant_domain}/admin/login`;
+        // Redirect to the tenant using main domain with workspace query param
+        const workspaceSlug = result.tenant_domain.split('.')[0];
+        const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
+        window.location.href = `${baseUrl}/?workspace=${workspaceSlug}`;
       } else {
         errorElement.textContent = result.message || 'Shop not found.';
       }
