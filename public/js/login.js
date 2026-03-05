@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.innerHTML = 'Finding...';
 
     try {
-      const backendUrl = window.BACKEND_URL || 'http://localhost:8000';
+      const backendUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
       const response = await fetch(`${backendUrl}/api/lookup-tenant`, {
         method: 'POST',
         headers: {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         // Redirect to the tenant-specific login page
-        window.location.href = `http://${result.tenant_domain}/admin/login`;
+        window.location.href = `https://${result.tenant_domain}/admin/login`;
       } else {
         errorElement.textContent = result.message || 'Shop not found.';
       }

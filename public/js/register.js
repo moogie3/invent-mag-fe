@@ -59,7 +59,7 @@ async function confirmRegistration() {
     </svg>
   `;
 
-  const baseUrl = window.BACKEND_URL || 'http://localhost:8000';
+  const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
   const backendUrl = `${baseUrl}/api/register`;
 
   try {
@@ -92,7 +92,7 @@ async function confirmRegistration() {
 
       // Construct the tenant-specific login URL and store it for the modal button
       if (result.tenant_domain) {
-        const tenantLoginUrl = `http://${result.tenant_domain}/admin/login`;
+        const tenantLoginUrl = `https://${result.tenant_domain}/admin/login`;
         window.tempTenantLoginUrl = tenantLoginUrl;
       }
     } else if (response.status === 422) {
