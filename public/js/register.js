@@ -62,6 +62,8 @@ async function confirmRegistration() {
   const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
   const backendUrl = `${baseUrl}/api/register`;
 
+  console.log("Starting registration request to:", backendUrl);
+
   try {
     const response = await fetch(backendUrl, {
       method: "POST",
@@ -73,7 +75,9 @@ async function confirmRegistration() {
       body: JSON.stringify(data),
     });
 
+    console.log("Response status:", response.status);
     const result = await response.json();
+    console.log("Response data:", result);
 
     if (response.ok) {
       // Success
