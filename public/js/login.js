@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.innerHTML = 'Finding...';
 
     try {
-      const backendUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
+      const backendUrl = window.BACKEND_URL || 'https://api.invent-mag.web.id';
       const response = await fetch(`${backendUrl}/api/lookup-tenant`, {
         method: 'POST',
         headers: {

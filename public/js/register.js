@@ -59,7 +59,7 @@ async function confirmRegistration() {
     </svg>
   `;
 
-  const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
+  const baseUrl = window.BACKEND_URL || 'https://api.invent-mag.web.id';
   const backendUrl = `${baseUrl}/api/register`;
 
   console.log("Starting registration request to:", backendUrl);
