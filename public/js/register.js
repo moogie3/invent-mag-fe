@@ -92,8 +92,8 @@ async function confirmRegistration() {
 
       // Construct the tenant-specific login URL using main domain with workspace query param
       if (result.tenant_domain) {
-        // Extract workspace slug from tenant_domain (e.g., demo-starter.invent-mag.up.railway.app -> demo-starter)
-        const workspaceSlug = result.tenant_domain.split('.')[0];
+        // Use workspace_slug from API if available, otherwise extract from tenant_domain
+        const workspaceSlug = result.workspace_slug || result.tenant_domain.split('.')[0];
         const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
         const tenantLoginUrl = `${baseUrl}/?workspace=${workspaceSlug}`;
         window.tempTenantLoginUrl = tenantLoginUrl;

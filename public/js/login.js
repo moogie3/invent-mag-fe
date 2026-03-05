@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Redirect to the tenant using main domain with workspace query param
-        const workspaceSlug = result.tenant_domain.split('.')[0];
+        // Use workspace_slug from API if available, otherwise extract from tenant_domain
+        const workspaceSlug = result.workspace_slug || (result.tenant_domain ? result.tenant_domain.split('.')[0] : '');
         const baseUrl = window.BACKEND_URL || 'https://invent-mag.up.railway.app';
         window.location.href = `${baseUrl}/?workspace=${workspaceSlug}`;
       } else {
