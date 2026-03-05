@@ -69,6 +69,7 @@ async function confirmRegistration() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+      credentials: "include", // Add this for CORS with credentials support
       body: JSON.stringify(data),
     });
 
