@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+
+const subject = Astro.url.searchParams.get('subject') || '';
+---
+
+<BaseLayout 
+  title="Contact Us - Invent-MAG" 
+  description="Get in touch with the Invent-MAG team. We're here to help with your inventory and accounting needs."
+>
+  <div class="relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-40 right-20 w-96 h-96 purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 py-16 lg:py-24">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold font-heading text-light mb-4">Get in Touch</h1>
+          <p class="text-lg text-gray-muted">Have questions about Invent-MAG? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+
+        <div class="bg-dark-surface border border-light/10 rounded-2xl p-8 md:p-10">
+          <form class="space-y-6" action="#" method="POST" x-data="{ 
+            submitted: false,
+            selectedSubject: '" + subject + "'
+          }" @submit.prevent="submitted = true">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-light mb-2">Full Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required
+                  class="w-full px-4 py-3 bg-dark border border-light/10 rounded-lg text-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="John Doe"
+                >
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-light mb-2">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  class="w-full px-4 py-3 bg-dark border border-light/10 rounded-lg text-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="john@company.com"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="company" class="block text-sm font-medium text-light mb-2">Company Name <span class="text-gray-500">(Optional)</span></label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company"
+                class="w-full px-4 py-3 bg-dark border border-light/10 rounded-lg text-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                placeholder="Your Company"
+              >
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-light mb-2">Subject</label>
+              <select 
+                id="subject" 
+                name="subject" 
+                required
+                x-model="selectedSubject"
+                class="w-full px-4 py-3 bg-dark border border-light/10 rounded-lg text-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              >
+                <option value="" class="text-gray-500">Select a topic</option>
+                <option value="sales" class="text-light" :selected="selectedSubject === 'sales'">Sales Inquiry</option>
+                <option value="support" class="text-light" :selected="selectedSubject === 'support'">Technical Support</option>
+                <option value="demo" class="text-light" :selected="selectedSubject === 'demo'">Request Demo</option>
+                <option value="partnership" class="text-light" :selected="selectedSubject === 'partnership'">Partnership</option>
+                <option value="other" class="text-light" :selected="selectedSubject === 'other'">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-light mb-2">Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                required
+                class="w-full px-4 py-3 bg-dark border border-light/10 rounded-lg text-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                placeholder="Tell us how we can help you..."
+              ></textarea>
+            </div>
+
+            <div x-show="!submitted">
+              <button 
+                type="submit"
+                class="w-full flex items-center justify-center whitespace-nowrap text-sm font-semibold transition-all shadow-lg bg-light text-dark hover:bg-white px-6 py-3 rounded-full"
+              >
+                Send Message
+                <img src="/icons/arrow-right.svg" alt="" class="ml-2 h-4 w-4" />
+              </button>
+            </div>
+
+            <div x-show="submitted" x-transition class="text-center py-4">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-4">
+                <img src="/icons/check-circle-green.svg" alt="Success" class="h-8 w-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-light mb-2">Message Sent!</h3>
+              <p class="text-gray-muted">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="bg-dark-surface/50 border border-light/5 rounded-xl p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+              <img src="/icons/email.svg" alt="Email" class="h-5 w-5 brightness-0 invert" />
+            </div>
+            <h3 class="text-light font-medium mb-1">Email</h3>
+            <a href="mailto:contact@invent-mag.com" class="text-gray-muted hover:text-primary transition-colors">contact@invent-mag.com</a>
+          </div>
+          <div class="bg-dark-surface/50 border border-light/5 rounded-xl p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+              <img src="/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5 brightness-0 invert" />
+            </div>
+            <h3 class="text-light font-medium mb-1">LinkedIn</h3>
+            <a href="https://id.linkedin.com/in/jefry-dwijaya-01b48521a" target="_blank" rel="noopener noreferrer" class="text-gray-muted hover:text-primary transition-colors">Jefry Dwijaya</a>
+          </div>
+          <div class="bg-dark-surface/50 border border-light/5 rounded-xl p-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+              <img src="/icons/github.svg" alt="GitHub" class="h-5 w-5 brightness-0 invert" />
+            </div>
+            <h3 class="text-light font-medium mb-1">GitHub</h3>
+            <a href="https://github.com/moogie3/invent-mag" target="_blank" rel="noopener noreferrer" class="text-gray-muted hover:text-primary transition-colors">moogie3/invent-mag</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>

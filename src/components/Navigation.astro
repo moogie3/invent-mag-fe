@@ -33,6 +33,14 @@ const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'https://demo-pro.inve
 			  Pricing
 			</a>
 		  </li>
+		  <li>
+			<a
+			  class="text-base font-medium text-gray-muted transition hover:text-light"
+			  href="/contact"
+			>
+			  Contact
+			</a>
+		  </li>
 		  <li class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
 			<button
 			  class="text-base font-medium text-gray-muted transition hover:text-light flex items-center gap-1"
@@ -56,12 +64,11 @@ const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'https://demo-pro.inve
                 <a href={demoStarterUrl} target="_blank" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
                   Starter Demo
                 </a>
-                <a href={demoProUrl} target="_blank" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors flex items-center justify-between">
-                  Professional Demo
-                  <span class="w-2 h-2 rounded-full bg-primary/80"></span>
-                </a>
                 <div class="border-t border-light/10 my-1"></div>
-                <a href="mailto:sales@invent-mag.com" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
+                <a href="/contact?subject=sales" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
+                  Professional (Contact Us)
+                </a>
+                <a href="/contact?subject=sales" class="px-4 py-2.5 text-sm font-medium text-gray-muted hover:text-light hover:bg-light/5 transition-colors">
                   Enterprise (Contact Us)
                 </a>
               </div>
@@ -111,6 +118,7 @@ const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'https://demo-pro.inve
 		<nav class="space-y-4">
 		  <a href="/#features" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Features</a>
 		  <a href="/pricing" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Pricing</a>
+		  <a href="/contact" class="block px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">Contact</a>
 		  
           <div x-data="{ demoOpen: false }" class="border-y border-light/5 py-2 my-2">
             <button @click="demoOpen = !demoOpen" class="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-muted hover:text-light transition-colors">
@@ -120,7 +128,7 @@ const demoProUrl = import.meta.env.PUBLIC_DEMO_PRO_URL || 'https://demo-pro.inve
             <div x-show="demoOpen" class="pl-6 pr-3 flex flex-col space-y-2 mt-2" style="display: none;">
               <a href={demoStarterUrl} target="_blank" class="block py-2 text-sm font-medium text-gray-muted hover:text-light transition-colors">Starter Demo</a>
               <a href={demoProUrl} target="_blank" class="block py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-2">Professional Demo <span class="w-1.5 h-1.5 rounded-full bg-primary/80"></span></a>
-              <a href="mailto:sales@invent-mag.com" class="block py-2 text-sm font-medium text-gray-muted hover:text-light transition-colors">Enterprise (Contact Us)</a>
+              <a href="/contact?subject=sales" class="block py-2 text-sm font-medium text-gray-muted hover:text-light transition-colors">Enterprise (Contact Us)</a>
             </div>
           </div>
 

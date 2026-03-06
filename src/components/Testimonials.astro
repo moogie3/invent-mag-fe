@@ -2,23 +2,23 @@
     <div class="max-w-7xl mx-auto px-4 xl:px-0 relative" 
          x-data="{
            currentTestimonial: 0,
-           testimonials: [
-             {
-               quote: 'Working with Acme Design was a pleasure from start to finish. Their team was responsive, collaborative, and delivered exceptional designs.',
-               author: 'Jennifer Carter',
-               role: 'Head of Marketing'
-             },
-             {
-               quote: 'The attention to detail and creative solutions provided by this team exceeded our expectations. They transformed our vision into reality with remarkable precision.',
-               author: 'Michael Rodriguez',
-               role: 'CEO'
-             },
-             {
-               quote: 'Outstanding work! The design team delivered exactly what we needed and more. Their professionalism and expertise made the entire process seamless.',
-               author: 'Sarah Thompson',
-               role: 'Product Manager'
-             }
-           ],
+            testimonials: [
+              {
+                quote: 'Invent-Mag has transformed how we manage our inventory. The multi-warehouse support and real-time stock tracking have saved us countless hours.',
+                author: 'Ahmad Wijaya',
+                role: 'Operations Manager'
+              },
+              {
+                quote: 'The accounting integration is flawless. Every sale automatically creates journal entries with FIFO COGS calculation. Our financial reporting is now accurate and instant.',
+                author: 'Siti Rahayu',
+                role: 'Finance Director'
+              },
+              {
+                quote: 'The sales forecasting feature using Holt-Winters algorithm gives us incredible insights. We can predict inventory needs months in advance with confidence.',
+                author: 'Budi Santoso',
+                role: 'CEO'
+              }
+            ],
            get currentQuote() { return this.testimonials[this.currentTestimonial]; },
            nextTestimonial() {
              this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
