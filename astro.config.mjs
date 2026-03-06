@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourdomain.com', // Replace with your actual domain
+  site: 'https://invent-mag.web.id',
   integrations: [
     sitemap(),
     mdx(),
