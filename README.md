@@ -56,6 +56,7 @@ public/
 | `/login`   | User login                          |
 | `/signup`  | Tenant registration                 |
 | `/pricing` | Pricing plans                       |
+| `/contact` | Contact form                        |
 
 ## Customization
 
